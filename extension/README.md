@@ -1,4 +1,4 @@
-# Claude Context Meter
+# Claude Context Sidebar
 
 See how full each Claude Code chat's context window is, without typing `/context`.
 
@@ -9,9 +9,15 @@ A section called **Context** appears inside the Claude Code sidebar in VS Code. 
 
 Each card shows the chat's real title (the same name as its tab), a bar that turns amber at 60% and red at 80%, how many tokens are used and how many are left, and a **↻ compacted 2×** chip once Claude Code has compacted the chat. At 80% it adds a short "wrap up before a heavy step" line. It only shows; it never compacts, clears or changes a chat.
 
+## How it differs from other meters
+
+There are already many good Claude Code usage and context extensions, and most of them put one meter in VS Code's bottom status bar: Claude Context Bar, Headroom, Claude Statusline, Claude Code & Codex Status Bar and others. If one number in the status bar is all you need, use one of those.
+
+This one is for people who keep several chats open. As far as I could find, it is different in three ways: it adds a **list inside the Claude Code sidebar**, with every chat's real title, bar and tokens left; it has a **This chat / All chats switch**; and it **counts how many times each chat has been compacted**. It does not show rate limits or cost.
+
 ## Install
 
-1. Download `claude-context-meter-0.1.1.vsix` from the Releases page.
+1. Download `claude-context-sidebar-0.1.1.vsix` from the Releases page.
 2. In VS Code open Extensions, click the `...` menu, choose **Install from VSIX...**, and pick the file.
 3. Reload the window (Command Palette, "Developer: Reload Window").
 
@@ -22,7 +28,7 @@ The list appears under the Claude Code sidebar's Session Manager. It works on it
 The extension reads each chat's size from the chat's saved file, but those files do not say how big the chat's window is, so without the mod it asks you once for yours (see Settings). The companion mod, which runs inside Claude Code, reports the exact window for every chat. Install it from a terminal Claude Code session:
 
 ```
-/plugin install context-meter --marketplace hopeunfilteredd/claude-context-meter
+/plugin install context-meter --marketplace hopeunfilteredd/claude-context-sidebar
 ```
 
 Answer `y` to add the marketplace, then pick the **user** scope so every chat loads it. It has no screen, writes one tiny file per chat inside your own `~/.claude` folder, and cannot break or slow a chat.

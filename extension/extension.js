@@ -1,4 +1,4 @@
-// Claude Context Meter: every Claude Code chat in this workspace, with its context fill, in the Claude Code sidebar.
+// Claude Context Sidebar: every Claude Code chat in this workspace, with its context fill, in the Claude Code sidebar.
 // Reads only local files under ~/.claude; nothing is sent anywhere.
 // Titles and token counts come from each chat's saved file (~/.claude/projects/<workspace>/<id>.jsonl).
 // The context-meter mod's files (~/.claude/context-meter/live/<id>.json) give the exact window where present.
@@ -224,7 +224,7 @@ function activate(ctx) {
       const known = cfg().get('assumedWindow', 0) > 0 || (fs.existsSync(LIVE) && fs.readdirSync(LIVE).length > 0)
       if (!known && !ctx.globalState.get('contextMeter.asked')) {
         ctx.globalState.update('contextMeter.asked', true)
-        vscode.window.showInformationMessage('Claude Context Meter: how big is your Claude Code context window? It cannot be read from disk, and a wrong guess would show wrong percentages.', 'Tell it now', 'Later')
+        vscode.window.showInformationMessage('Claude Context Sidebar: how big is your Claude Code context window? It cannot be read from disk, and a wrong guess would show wrong percentages.', 'Tell it now', 'Later')
           .then(a => { if (a === 'Tell it now') vscode.commands.executeCommand('contextMeter.setWindow') })
       }
     } catch {}

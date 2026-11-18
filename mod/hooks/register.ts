@@ -1,8 +1,8 @@
 import type { Register } from 'claude-code'
 
-// Context Meter feed. After every reply this writes one tiny file per chat,
+// Context Sidebar feed. After every reply this writes one tiny file per chat,
 //   <claude folder>/context-meter/live/<chat id>.json  ->  { id, tokens, window, percent, updated }
-// which the Context Meter VS Code extension reads to show the chat's exact window.
+// which the Claude Context Sidebar VS Code extension reads to show the chat's exact window.
 // It reads and writes only inside your own Claude folder, never sends anything anywhere, and can never
 // break or slow a chat: every step is wrapped, and a failure just means no file is written.
 

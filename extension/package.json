@@ -1,7 +1,7 @@
 {
-  "name": "claude-context-meter",
-  "displayName": "Claude Context Meter",
-  "description": "See how full each Claude Code chat's context window is, right in the Claude Code sidebar. Shows every chat or just the one you are in, and counts compactions.",
+  "name": "claude-context-sidebar",
+  "displayName": "Claude Context Sidebar",
+  "description": "A list of every Claude Code chat's context window, right inside the Claude Code sidebar. Switch between all chats and just the one you are in, with real chat names and a compaction count.",
   "version": "0.1.1",
   "publisher": "hopeunfilteredd",
   "license": "MIT",
@@ -29,7 +29,7 @@
       "activitybar": [
         {
           "id": "contextMeterOwn",
-          "title": "Context Meter",
+          "title": "Context Sidebar",
           "icon": "icon.svg",
           "when": "config.contextMeter.showOwnIcon"
         }
@@ -66,7 +66,7 @@
       ]
     },
     "configuration": {
-      "title": "Claude Context Meter",
+      "title": "Claude Context Sidebar",
       "properties": {
         "contextMeter.assumedWindow": {
           "type": "number",
@@ -96,23 +96,23 @@
         "contextMeter.showOwnIcon": {
           "type": "boolean",
           "default": false,
-          "description": "Show a Context Meter icon of its own in the activity bar. Only needed if the list does not appear inside the Claude Code sidebar (for example after a Claude Code update changes it)."
+          "description": "Show a Context Sidebar icon of its own in the activity bar. Only needed if the list does not appear inside the Claude Code sidebar (for example after a Claude Code update changes it)."
         }
       }
     },
     "commands": [
       {
         "command": "contextMeter.setWindow",
-        "title": "Context Meter: Set my window size"
+        "title": "Claude Context Sidebar: Set my window size"
       }
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/hopeunfilteredd/claude-context-meter"
+    "url": "https://github.com/hopeunfilteredd/claude-context-sidebar"
   },
   "bugs": {
-    "url": "https://github.com/hopeunfilteredd/claude-context-meter/issues"
+    "url": "https://github.com/hopeunfilteredd/claude-context-sidebar/issues"
   },
-  "homepage": "https://github.com/hopeunfilteredd/claude-context-meter#readme"
+  "homepage": "https://github.com/hopeunfilteredd/claude-context-sidebar#readme"
 }

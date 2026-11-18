@@ -1,7 +1,12 @@
 {
   "name": "context-meter",
   "version": "0.1.0",
-  "description": "Feeds the Context Meter VS Code sidebar the exact context window of every Claude Code chat. Optional: the sidebar also works without it.",
+  "description": "Feeds the Claude Context Sidebar VS Code extension the exact context window of every Claude Code chat. Optional: the extension also works without it.",
   "license": "MIT",
-  "keywords": ["context", "meter", "vscode", "sidebar"]
+  "keywords": [
+    "context",
+    "meter",
+    "vscode",
+    "sidebar"
+  ]
 }
