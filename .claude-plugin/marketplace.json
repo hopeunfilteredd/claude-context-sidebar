@@ -1,0 +1,7 @@
+{
+  "name": "claude-context-meter",
+  "owner": { "name": "Kiran Bhati" },
+  "plugins": [
+    { "name": "context-meter", "source": "./mod", "description": "Feeds the Claude Context Meter sidebar the exact context window of every Claude Code chat." }
+  ]
+}

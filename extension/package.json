@@ -1,0 +1,118 @@
+{
+  "name": "claude-context-meter",
+  "displayName": "Claude Context Meter",
+  "description": "See how full each Claude Code chat's context window is, right in the Claude Code sidebar. Shows every chat or just the one you are in, and counts compactions.",
+  "version": "0.1.1",
+  "publisher": "hopeunfilteredd",
+  "license": "MIT",
+  "icon": "icon.png",
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "claude",
+    "claude code",
+    "context window",
+    "tokens",
+    "compaction",
+    "sidebar"
+  ],
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "contextMeterOwn",
+          "title": "Context Meter",
+          "icon": "icon.svg",
+          "when": "config.contextMeter.showOwnIcon"
+        }
+      ]
+    },
+    "views": {
+      "claude-sidebar": [
+        {
+          "type": "webview",
+          "id": "contextMeter.inSidebar",
+          "name": "Context (all chats)"
+        }
+      ],
+      "claude-sessions-sidebar": [
+        {
+          "type": "webview",
+          "id": "contextMeter.inSessions",
+          "name": "Context (all chats)"
+        }
+      ],
+      "claude-sidebar-secondary": [
+        {
+          "type": "webview",
+          "id": "contextMeter.inSecondary",
+          "name": "Context (all chats)"
+        }
+      ],
+      "contextMeterOwn": [
+        {
+          "type": "webview",
+          "id": "contextMeter.own",
+          "name": "Context (all chats)"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Claude Context Meter",
+      "properties": {
+        "contextMeter.assumedWindow": {
+          "type": "number",
+          "default": 0,
+          "markdownDescription": "Your Claude Code context window in tokens, for example `200000` or `1000000`. `0` means not set: the sidebar then shows tokens used without a percentage and asks you once. Run **Context Meter: Set my window size** to set it. The optional companion mod reports the exact window and makes this setting unnecessary. Chats that already hold more tokens than this are treated as 1M automatically."
+        },
+        "contextMeter.amberAt": {
+          "type": "number",
+          "default": 60,
+          "description": "Percent at which a chat turns amber."
+        },
+        "contextMeter.redAt": {
+          "type": "number",
+          "default": 80,
+          "description": "Percent at which a chat turns red and shows the warning."
+        },
+        "contextMeter.maxAgeHours": {
+          "type": "number",
+          "default": 36,
+          "description": "Chats not touched for this many hours are left out of the list."
+        },
+        "contextMeter.hideTitlesMatching": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Hide chats whose title matches this regular expression (case-insensitive), for example `\\(old\\)` to hide chats you renamed with \"(old)\"."
+        },
+        "contextMeter.showOwnIcon": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show a Context Meter icon of its own in the activity bar. Only needed if the list does not appear inside the Claude Code sidebar (for example after a Claude Code update changes it)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "contextMeter.setWindow",
+        "title": "Context Meter: Set my window size"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hopeunfilteredd/claude-context-meter"
+  },
+  "bugs": {
+    "url": "https://github.com/hopeunfilteredd/claude-context-meter/issues"
+  },
+  "homepage": "https://github.com/hopeunfilteredd/claude-context-meter#readme"
+}
